@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="hero">
+    <h1>Search Jobs</h1>
+    <p>다른 기술도 바로 다시 검색할 수 있어요.</p>
+    <form action="/search" method="get">
+      <input
+        type="text"
+        name="keyword"
+        value="{{ keyword }}"
+        placeholder="예: python, javascript, java"
+        required
+      />
+      <button type="submit">다시 검색</button>
+    </form>
+  </section>
+
+  {% if keyword %}
+    <div class="result-header">
+      <h2>"{{ keyword }}" 검색 결과</h2>
+      <p>총 {{ jobs|length }}개의 채용 공고를 찾았습니다.</p>
+    </div>
+  {% endif %}
+
+  {% if error %}
+    <div class="message">
+      <p>{{ error }}</p>
+    </div>
+  {% elif jobs %}
+    <section class="jobs">
+      {% for job in jobs %}
+        <article class="job">
+          <span class="source">{{ job.source }}</span>
+          <h3>{{ job.title }}</h3>
+          <p class="meta">{{ job.company }}</p>
+          <a href="{{ job.link }}" target="_blank">공고 보러가기</a>
+        </article>
+      {% endfor %}
+    </section>
+  {% elif keyword %}
+    <div class="message">
+      <p>검색 결과가 없습니다.</p>
+    </div>
+  {% endif %}
+{% endblock %}
