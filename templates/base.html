@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scraper</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fb;
+        color: #1f2937;
+      }
+
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #0f172a, #2563eb);
+        color: white;
+        border-radius: 24px;
+        padding: 48px 28px;
+        margin-bottom: 28px;
+      }
+
+      .hero h1 {
+        margin: 0 0 12px;
+        font-size: 40px;
+      }
+
+      .hero p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      form {
+        display: flex;
+        gap: 12px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        min-width: 220px;
+        padding: 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 14px;
+        font-size: 16px;
+      }
+
+      button {
+        border: 0;
+        background: #111827;
+        color: white;
+        padding: 16px 24px;
+        border-radius: 14px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .result-header {
+        margin: 20px 0 16px;
+      }
+
+      .jobs {
+        display: grid;
+        gap: 16px;
+      }
+
+      .job {
+        background: white;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+
+      .job h3 {
+        margin: 0 0 10px;
+      }
+
+      .meta {
+        margin: 0 0 12px;
+        color: #4b5563;
+      }
+
+      .source {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        font-size: 14px;
+      }
+
+      .job a {
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .message {
+        background: white;
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+
+      @media (max-width: 640px) {
+        .hero h1 {
+          font-size: 30px;
+        }
+
+        button,
+        input[type="text"] {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
