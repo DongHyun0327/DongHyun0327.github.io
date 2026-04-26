@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="hero">
+    <h1>Job Scraper</h1>
+    <p>
+      Python, JavaScript, Java 같은 기술 키워드로 검색하면 여러 사이트의 채용 공고를
+      한 번에 보여줍니다.
+    </p>
+    <form action="/search" method="get">
+      <input
+        type="text"
+        name="keyword"
+        placeholder="예: python, javascript, java"
+        required
+      />
+      <button type="submit">검색하기</button>
+    </form>
+  </section>
+{% endblock %}
